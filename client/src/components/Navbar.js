@@ -2,6 +2,8 @@ import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
 import { Menu, } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom'
+import ConnectedFetchUser from './FetchUser';
+import Home from './Home'
 
 class Navbar extends React.Component {
   
@@ -11,6 +13,9 @@ class Navbar extends React.Component {
     if (user) {
       return (
         <Menu.Menu position='right'>
+        <Menu.Item
+          name = {user.email}
+          /> 
           <Menu.Item
             name='logout'
             onClick={ () => handleLogout(this.props.history) }
